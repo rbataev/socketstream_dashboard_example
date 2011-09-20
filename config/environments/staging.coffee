@@ -1,10 +1,10 @@
 exports.config =
 
-  # Serve on Port 80
   http:
-    port:     80
-    hostname: "www.ssdashboard.com"
-
+    port:         80
+    hostname:     "0.0.0.0"
+  
   https:
-    port:     443
-    hostname: "www.ssdashboard.com"
+    enabled:      true
+    port:         443
+    domain:       "www.ssdashboard.com"

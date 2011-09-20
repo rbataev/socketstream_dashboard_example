@@ -13,7 +13,7 @@ exports.actions =
       cb if !err then doc else false
   
   getWidgets: (cb) ->
-    Widget.find {}, {}, {}, (err, docs) -> cb docs.map (d) -> d.doc
+    Widget.find {}, (err, docs) -> cb docs 
     
   updateWidget: (data, cb) ->
     Widget.findById data._id, (err, doc) ->
