@@ -33,7 +33,7 @@ exports.init = ->
       window.dialogueTemplate.remove object.attr('id')
       $('#overlay').remove()
   
-  SS.server.app.getWidgets (widgets) -> 
+  SS.server.widget.findAll (widgets) -> 
     new widgetModel(widget).save() for widget in widgets
 
   # Bind behaviour for creating a new widget
@@ -67,7 +67,7 @@ exports.init = ->
     
     $('form#widget').submit ->
       data = {title: $(@).find('input[name="title"]').val(), html: $('.htmlContent textarea').val(), css: $('.cssContent textarea').val(), coffee: $('.coffeeContent textarea').val(), json: $('.jsonContent textarea').val()}
-      SS.server.app.createWidget data, (res) ->
+      SS.server.widget.create data, (res) ->
         if res is false
           alert "Balls. Mongo doesn't like it :("
         else
@@ -119,7 +119,7 @@ exports.init = ->
     stopOwen = confirm("Do you want to delete this widget?")
     if stopOwen is true # Owen clicked on a delete button once, made me where the hell my beautifully-crafted widget went.
       id = $(@).parent().parent().attr('id').split('_')[1]
-      SS.server.app.deleteWidget id, (res) ->
+      SS.server.widget.delete id, (res) ->
         if res isnt true then alert "There was an error deleting the widget"
       
   # Shows the configure widget dialog
@@ -159,7 +159,7 @@ exports.init = ->
 
     # form submit
     $('form#widget').submit ->
-      SS.server.app.updateWidget {_id: widget.id(), title: $(@).find('input[name="title"]').val(), html: $('.htmlContent textarea').val(), css: $('.cssContent textarea').val(), coffee: $('.coffeeContent textarea').val(), json: $(@).find('.jsonContent textarea').val()}, (res) ->        
+      SS.server.widget.update {_id: widget.id(), title: $(@).find('input[name="title"]').val(), html: $('.htmlContent textarea').val(), css: $('.cssContent textarea').val(), coffee: $('.coffeeContent textarea').val(), json: $(@).find('.jsonContent textarea').val()}, (res) ->        
         if res is false
           alert "Balls. Mongo doesn't like it :("
         else
