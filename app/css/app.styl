@@ -59,10 +59,10 @@ body, html
     
 .widget
   float left
-  background rgba(0,0,0,0.5)
+  background rgba(0,0,0,0.3)
   box-shadow inset 0px 3px 14px 1px rgba(0,0,0,0.45)
-  width 22em
-  height 20em
+  width 220px
+  height 200px
   margin 1em
   round 10px
   
@@ -82,29 +82,28 @@ body, html
       opacity 0
       -webkit-transition opacity 0.3s linear
 
-    .config
-      opacity 0  
+    .caption.button
       position absolute
+      cursor pointer
+      round 15px
       top 8px
-      left 19px
       width 10px
       height 10px
-      round 15px
+
+    .clone
+      left 31px
+      background #00A200
+      vertical-gradient(#00FF00, #00A200)       
+
+    .config
+      left 19px
       background #E9961A
       vertical-gradient(#E8C61A, #E9961A) 
-      cursor pointer
 
     .delete  
-      opacity 0 
-      position absolute
-      top 8px
       left 7px
-      width 10px
-      height 10px
-      round 15px
       background #A20000
       vertical-gradient(#FF0000, #A20000)
-      cursor pointer
       
 
    .heading:hover .button
@@ -157,7 +156,7 @@ body, html
   float: left
   width: 70em
   margin 0em 0em 2em 5em
-  height: 30em
+  height: 270px
   round 5px
 
 .tabContent 
@@ -269,6 +268,9 @@ textarea.ide
     float left
     font-size 12pt
     padding 5px
+
+  input[name='title']
+    width 300px
     
   input[type='submit']
     float right
